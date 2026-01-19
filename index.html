@@ -371,24 +371,28 @@
         /* Photo Carousel - NO CONTAINER VERSION */
         .photo-carousel {
             width: 100%;
-            max-width: 550px;
-            height: 550px;
-            position: relative;
-            overflow: visible;
-            border-radius: 20px;
-            box-shadow: var(--shadow-lg);
-            animation: float 8s ease-in-out infinite;
+    max-width: 550px;
+    height: 550px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    animation: float 8s ease-in-out infinite;
         }
         
         .carousel-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-            z-index: 1;
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1s ease;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;              /* ✅ show full head */
+    object-position: center top;      /* ✅ prioritize head */
+    background: transparent;
+    transition: transform 8s ease;
         }
         
         .carousel-slide.active {
@@ -397,11 +401,13 @@
         }
         
         .carousel-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 20px;
-            transition: transform 8s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;              /* ✅ show full head */
+    object-position: center top;      /* ✅ prioritize head */
+    background: transparent;
+    border-radius: 0;
+    transition: transform 8s ease;
         }
         
         .carousel-slide.active img {
@@ -410,14 +416,21 @@
         
         /* Gradient overlay for better text readability */
         .carousel-slide:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.4));
-            border-radius: 20px;
+            .carousel-slide:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.2),
+        rgba(0,0,0,0.4)
+    );
+    border-radius: 20px;
+}
+
         }
         
         .carousel-indicators {
@@ -501,13 +514,17 @@
             50% { transform: translateY(-25px); }
         }
         
-        /* About Section */
+        /* ABOUT SECTION – BIGGER PHOTO */
+        .about-carousel {
+            max-width: 520px !important;
+            height: 680px !important; /* portrait ratio */
+        }
+
         .about {
             background-color: var(--dark-light);
             position: relative;
             overflow: hidden;
         }
-        
         .about:before {
             content: '';
             position: absolute;
@@ -521,11 +538,12 @@
         
         .about-container {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
+            grid-template-columns: 1.3fr 1.7fr; /* photo bigger */
             gap: 5rem;
             align-items: center;
             position: relative;
             z-index: 2;
+            
         }
         
         .contact-info {
@@ -1006,8 +1024,15 @@
             }
             
             .photo-carousel {
-                max-width: 450px;
-                height: 450px;
+                width: 100%;
+    max-width: 550px;
+    height: 550px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    animation: float 8s ease-in-out infinite;
             }
             
             .carousel-control {
@@ -1068,8 +1093,15 @@
             }
             
             .photo-carousel {
-                max-width: 320px;
-                height: 320px;
+                width: 100%;
+    max-width: 550px;
+    height: 550px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    animation: float 8s ease-in-out infinite;
             }
             
             .carousel-caption {
@@ -1133,6 +1165,39 @@
         .upload-instruction:hover {
             background: rgba(58, 54, 224, 0.8);
         }
+        /* ABOUT HIGHLIGHTS */
+.about-highlights {
+    list-style: none;
+    display: grid;
+    gap: 1.2rem;
+    margin-top: 2rem;
+}
+
+.about-highlights li {
+    background: rgba(255, 255, 255, 0.04);
+    border-left: 4px solid var(--secondary);
+    padding: 1.4rem 1.6rem;
+    border-radius: 12px;
+    transition: var(--transition);
+}
+
+.about-highlights li strong {
+    display: block;
+    font-size: 1.15rem;
+    color: var(--light);
+    margin-bottom: 0.4rem;
+}
+
+.about-highlights li span {
+    color: var(--gray);
+    font-size: 1.05rem;
+}
+
+.about-highlights li:hover {
+    background: rgba(58, 54, 224, 0.12);
+    transform: translateX(8px);
+}
+
     </style>
 </head>
 <body>
@@ -1165,7 +1230,13 @@
             <div class="hero-content">
                 <h1 class="fade-in">Courteny T. Madronero</h1>
                 <div class="hero-subtitle fade-in">Data Entry Operator</div>
-                <p class="fade-in">Experienced data professional with 6+ years of expertise in accurate data input, verification, and database management. Seeking to leverage skills in a dynamic organization that values precision and efficiency.</p>
+                <p class="fade-in">I have 6 years' experience in an under-pressure company responsible
+for accurate and efficiently inputting, updating, and maintaining data
+within computer systems and databases. I verify data accuracy, correct
+errors, and organize records. My role may involve tasks such as
+transcribing documents, managing electronic files, and generating
+reports. and looking for a suitable company that I can share my
+knowledge and enhance my skills as well</p>
                 <div class="hero-btns">
                     <a href="#contact" class="btn btn-primary fade-in">
                         <i class="fas fa-envelope"></i> Contact Me
@@ -1225,7 +1296,7 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="fade-in">Professional Profile</h2>
-                <p class="fade-in">I have 6 years' experience in an under-pressure company responsible for accurate and efficiently inputting, updating, and maintaining data within computer systems and databases.</p>
+                <p class="fade-in"></p>
             </div>
             
             <div class="about-container">
@@ -1250,10 +1321,33 @@
                     </div>
                 </div>
                 
-                <div class="about-content">
-                    <p class="fade-in">I verify data accuracy, correct errors, and organize records. My role involves tasks such as transcribing documents, managing electronic files, and generating reports.</p>
-                    <p class="fade-in">I'm looking for a suitable company where I can share my knowledge and enhance my skills as well.</p>
-                    
+                <ul class="about-highlights fade-in">
+    <li>
+        <strong>📥 Inputting Data</strong>
+        <span>Transcribing information from paper documents, forms, and other sources into digital systems.</span>
+    </li>
+    <li>
+        <strong>✅ Verifying Data</strong>
+        <span>Ensuring accuracy and completeness by comparing data with source documents.</span>
+    </li>
+    <li>
+        <strong>🗂 Updating Databases</strong>
+        <span>Maintaining up-to-date and well-structured records.</span>
+    </li>
+    <li>
+        <strong>📁 Managing Files</strong>
+        <span>Organizing, storing, and retrieving electronic documents efficiently.</span>
+    </li>
+    <li>
+        <strong>🧹 Data Cleansing</strong>
+        <span>Identifying and correcting errors and inconsistencies.</span>
+    </li>
+    <li>
+        <strong>💾 Data Backup</strong>
+        <span>Performing regular backups to prevent data loss.</span>
+    </li>
+</ul>
+
                     <div class="contact-info" id="contact">
                         <div class="contact-item fade-in">
                             <i class="fas fa-envelope"></i>
