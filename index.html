@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courteny T. Madronero - Data Entry Specialist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #3a36e0;
+            --primary-light: #6b67ff;
+            --primary-dark: #2a27b3;
+            --secondary: #00d4aa;
+            --dark: #121826;
+            --dark-light: #1f2937;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+            --gray-light: #e2e8f0;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+            --border-radius: 16px;
+            --border-radius-sm: 8px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--light);
+            background-color: var(--dark);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            letter-spacing: -0.5px;
+        }
+        
+        h2 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            letter-spacing: -0.3px;
+        }
+        
+        h3 {
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+        }
+        
+        h4 {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        section {
+            padding: clamp(5rem, 10vw, 8rem) 0;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2.5rem;
+            border-radius: var(--border-radius-sm);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            outline: none;
+            gap: 0.75rem;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 8px 20px 0 rgba(58, 54, 224, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px 0 rgba(58, 54, 224, 0.4);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--light);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            background-color: rgba(58, 54, 224, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: clamp(3rem, 8vw, 5rem);
+        }
+        
+        .section-header h2 {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+        
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 3px;
+        }
+        
+        .section-header p {
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+            font-size: 1.2rem;
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            transition: var(--transition);
+            background-color: rgba(18, 24, 38, 0.9);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        header.scrolled {
+            padding: 1rem 0;
+            background-color: rgba(18, 24, 38, 0.95);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--light);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .logo-icon {
+            color: var(--primary);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .logo-text {
+            color: var(--light);
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .nav-link {
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+            padding: 0.5rem 0;
+            color: var(--gray);
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--light);
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover:after,
+        .nav-link.active:after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding-top: clamp(10rem, 18vw, 15rem);
+            padding-bottom: clamp(5rem, 10vw, 8rem);
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0d0f1a 0%, var(--dark) 100%);
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .hero-bg:before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -20%;
+            width: 70%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(58, 54, 224, 0.15) 0%, rgba(0, 212, 170, 0.1) 50%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .hero-bg:after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(58, 54, 224, 0.1) 0%, rgba(0, 212, 170, 0.05) 50%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .hero-container {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+        
+        .hero-content h1 {
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--light), var(--gray));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero-subtitle {
+            display: inline-block;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .hero-subtitle:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1rem;
+            height: 3px;
+            background-color: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            max-width: 90%;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .hero-btns {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Photo Carousel - NO CONTAINER VERSION */
+        .photo-carousel {
+            width: 100%;
+            max-width: 550px;
+            height: 550px;
+            position: relative;
+            overflow: visible;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            z-index: 1;
+        }
+        
+        .carousel-slide.active {
+            opacity: 1;
+            z-index: 2;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            transition: transform 8s ease;
+        }
+        
+        .carousel-slide.active img {
+            transform: scale(1.05);
+        }
+        
+        /* Gradient overlay for better text readability */
+        .carousel-slide:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.4));
+            border-radius: 20px;
+        }
+        
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+        
+        .carousel-indicator.active {
+            background-color: var(--secondary);
+            transform: scale(1.2);
+            box-shadow: 0 0 10px var(--secondary);
+        }
+        
+        .carousel-indicator:hover {
+            background-color: var(--primary-light);
+        }
+        
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 10;
+            transform: translateY(-50%);
+        }
+        
+        .carousel-control {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+        
+        .carousel-control:hover {
+            background-color: rgba(58, 54, 224, 0.7);
+            transform: scale(1.1);
+        }
+        
+        .carousel-caption {
+            position: absolute;
+            bottom: 60px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            z-index: 10;
+            padding: 10px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-25px); }
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--dark-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%2300d4aa' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+        
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 5rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background-color: rgba(255, 255, 255, 0.03);
+            border-radius: var(--border-radius-sm);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .contact-item:hover {
+            background-color: rgba(58, 54, 224, 0.1);
+            transform: translateX(10px);
+            border-color: var(--primary);
+        }
+        
+        .contact-item i {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        /* Skills Section */
+        .skills {
+            background-color: var(--dark);
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .skill-card {
+            background-color: var(--dark-light);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+        
+        .skill-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+        
+        .skill-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            color: var(--light);
+        }
+        
+        .skill-card h3 i {
+            color: var(--secondary);
+            font-size: 1.8rem;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--gray);
+        }
+        
+        .skill-list li:before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        /* Experience Section */
+        .experience {
+            background-color: var(--dark-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        @media (min-width: 768px) {
+            .timeline:before {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            padding-left: 70px;
+        }
+        
+        @media (min-width: 768px) {
+            .timeline-item {
+                width: 50%;
+                padding-left: 0;
+            }
+            
+            .timeline-item:nth-child(odd) {
+                padding-right: 70px;
+                margin-left: auto;
+            }
+            
+            .timeline-item:nth-child(even) {
+                padding-left: 70px;
+                margin-right: auto;
+                margin-left: 0;
+            }
+        }
+        
+        .timeline-date {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 5px 15px rgba(58, 54, 224, 0.3);
+            z-index: 2;
+        }
+        
+        @media (min-width: 768px) {
+            .timeline-item:nth-child(odd) .timeline-date {
+                left: auto;
+                right: -110px;
+            }
+            
+            .timeline-item:nth-child(even) .timeline-date {
+                left: -110px;
+            }
+        }
+        
+        .timeline-content {
+            background-color: var(--dark);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+        
+        .timeline-content:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .responsibilities {
+            margin-top: 2rem;
+        }
+        
+        .responsibilities ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .responsibilities li {
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--gray);
+        }
+        
+        .responsibilities li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        /* Education & Language Section */
+        .education {
+            background-color: var(--dark);
+        }
+        
+        .edu-lang-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .edu-card, .lang-card {
+            background-color: var(--dark-light);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .edu-card:hover, .lang-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+        
+        .edu-card:before, .lang-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .edu-card h3, .lang-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            color: var(--light);
+        }
+        
+        .edu-card h3 i, .lang-card h3 i {
+            color: var(--secondary);
+            font-size: 1.8rem;
+        }
+        
+        .language-list {
+            list-style: none;
+        }
+        
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .language-name {
+            font-weight: 600;
+            color: var(--light);
+            font-size: 1.1rem;
+        }
+        
+        .language-level {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0a0c14 0%, #121826 100%);
+            color: white;
+            padding: 5rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--gray);
+            transition: var(--transition);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius-sm);
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .footer-link:hover {
+            color: white;
+            transform: translateY(-5px);
+            background-color: rgba(58, 54, 224, 0.1);
+            border-color: var(--primary);
+        }
+        
+        .copyright {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            width: 100%;
+        }
+        
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 1200px) {
+            .hero-container,
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+            
+            .hero-content {
+                order: 2;
+                text-align: center;
+            }
+            
+            .hero-content p {
+                max-width: 100%;
+            }
+            
+            .hero-btns {
+                justify-content: center;
+            }
+            
+            .photo-carousel {
+                max-width: 500px;
+                height: 500px;
+                margin: 0 auto;
+            }
+            
+            .skills-container,
+            .edu-lang-container {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            html {
+                font-size: 15px;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 85%;
+                max-width: 350px;
+                height: 100vh;
+                background-color: var(--dark-light);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 6rem 2rem 2rem;
+                gap: 2rem;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+                transition: var(--transition);
+                z-index: 1000;
+                border-left: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-link {
+                font-size: 1.2rem;
+            }
+            
+            .hero {
+                padding-top: 8rem;
+            }
+            
+            .photo-carousel {
+                max-width: 450px;
+                height: 450px;
+            }
+            
+            .carousel-control {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .timeline:before {
+                left: 25px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 60px;
+            }
+            
+            .timeline-date {
+                position: relative;
+                left: 0;
+                top: 0;
+                margin-bottom: 1.5rem;
+                display: inline-block;
+            }
+            
+            .skill-card,
+            .edu-card,
+            .lang-card,
+            .timeline-content {
+                padding: 2rem;
+            }
+            
+            .contact-item {
+                padding: 1.25rem;
+            }
+            
+            .contact-item i {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-btns {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .hero-btns .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .photo-carousel {
+                max-width: 320px;
+                height: 320px;
+            }
+            
+            .carousel-caption {
+                font-size: 1rem;
+                bottom: 50px;
+            }
+            
+            .carousel-indicators {
+                bottom: 15px;
+            }
+            
+            .skills-container,
+            .edu-lang-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-link {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+        
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+        
+        .mt-1 { margin-top: 1rem; }
+        .mt-2 { margin-top: 2rem; }
+        .mt-3 { margin-top: 3rem; }
+        
+        .mb-1 { margin-bottom: 1rem; }
+        .mb-2 { margin-bottom: 2rem; }
+        .mb-3 { margin-bottom: 3rem; }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Photo Upload Instructions */
+        .upload-instruction {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .upload-instruction:hover {
+            background: rgba(58, 54, 224, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#home" class="logo">
+                <span class="logo-icon"><></span>
+                <span class="logo-text">KURT CREATES</span>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#education" class="nav-link">Education</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="fade-in">Courteny T. Madronero</h1>
+                <div class="hero-subtitle fade-in">Data Entry Specialist</div>
+                <p class="fade-in">Experienced data professional with 6+ years of expertise in accurate data input, verification, and database management. Seeking to leverage skills in a dynamic organization that values precision and efficiency.</p>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn btn-primary fade-in">
+                        <i class="fas fa-envelope"></i> Contact Me
+                    </a>
+                    <a href="#experience" class="btn btn-secondary fade-in">
+                        <i class="fas fa-briefcase"></i> View Experience
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-image fade-in">
+                <!-- Photo Carousel - No Container -->
+                <div class="photo-carousel">
+                    <!-- Photo 1 (Current - Professional) -->
+                    <div class="carousel-slide active">
+                        <img src="me.png" alt="Courteny Madronero - Professional Headshot">
+                        <div class="carousel-caption">Professional Headshot</div>
+                    </div>
+                    
+                    <!-- Photo 2 (Work Environment) -->
+                    <div class="carousel-slide">
+                        <img src="ako.png" alt="Working at Desk">
+                        <div class="carousel-caption">At Work - Data Management</div>
+                    </div>
+                  
+              
+                    
+                    <!-- Carousel Controls -->
+                    <div class="carousel-controls">
+                        <button class="carousel-control prev-btn">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-control next-btn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Carousel Indicators -->
+                    <div class="carousel-indicators">
+                        <div class="carousel-indicator active" data-index="0"></div>
+                        <div class="carousel-indicator" data-index="1"></div>
+                        <div class="carousel-indicator" data-index="2"></div>
+                        <div class="carousel-indicator" data-index="3"></div>
+                    </div>
+                    
+                    <!-- Upload Instruction -->
+                    <div class="upload-instruction" id="uploadInstruction">
+                        <i class="fas fa-camera"></i> Add Your Photos
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="fade-in">Professional Profile</h2>
+                <p class="fade-in">I have 6 years' experience in an under-pressure company responsible for accurate and efficiently inputting, updating, and maintaining data within computer systems and databases.</p>
+            </div>
+            
+            <div class="about-container">
+                <div class="about-image fade-in">
+                    <!-- Smaller Carousel for About Section -->
+                    <div class="photo-carousel" style="max-width: 300px; height: 300px;">
+                        <!-- About Section Carousel -->
+                        <div class="carousel-slide active">
+                            <img src="me.png" alt="About Me">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="ako.png" alt="Office Environment">
+                        </div>
+                       
+                        
+                        <!-- Simple indicators for this carousel -->
+                        <div class="carousel-indicators">
+                            <div class="carousel-indicator active" data-index="0"></div>
+                            <div class="carousel-indicator" data-index="1"></div>
+                            <div class="carousel-indicator" data-index="2"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-content">
+                    <p class="fade-in">I verify data accuracy, correct errors, and organize records. My role involves tasks such as transcribing documents, managing electronic files, and generating reports.</p>
+                    <p class="fade-in">I'm looking for a suitable company where I can share my knowledge and enhance my skills as well.</p>
+                    
+                    <div class="contact-info" id="contact">
+                        <div class="contact-item fade-in">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <div>madronerokurt04@gmail.com</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item fade-in">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Phone</strong>
+                                <div>+966 569 226173</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item fade-in">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Location</strong>
+                                <div>Manila, Philippines</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item fade-in">
+                            <i class="fab fa-linkedin"></i>
+                            <div>
+                                <strong>LinkedIn</strong>
+                                <div>linkedin.com/in/courtenymadronero</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item fade-in">
+                            <i class="fab fa-github"></i>
+                            <div>
+                                <strong>Portfolio</strong>
+                                <div>kurttzy918.github.io/My-First-Web</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="fade-in">Professional Skills</h2>
+                <p class="fade-in">A comprehensive overview of my technical and professional capabilities</p>
+            </div>
+            
+            <div class="skills-container">
+                <div class="skill-card fade-in">
+                    <h3><i class="fas fa-laptop-code"></i> Software Proficiency</h3>
+                    <ul class="skill-list">
+                        <li>Microsoft Office Suite (Excel, PowerPoint, Word) - Intermediate Level</li>
+                        <li>ERP Software (Oracle Publisher, SAP)</li>
+                        <li>Data Automation with Macros and VBA</li>
+                        <li>Speed Typing - 45 WPM with accuracy</li>
+                        <li>Attention to Detail</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card fade-in">
+                    <h3><i class="fas fa-database"></i> Data Management</h3>
+                    <ul class="skill-list">
+                        <li>Data Entry & Verification</li>
+                        <li>Database Management & Updates</li>
+                        <li>Data Research & Web Scraping</li>
+                        <li>Data Cleansing & Error Correction</li>
+                        <li>Inventory Management</li>
+                        <li>Data Security & Confidentiality</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card fade-in">
+                    <h3><i class="fas fa-code"></i> Technical Skills</h3>
+                    <ul class="skill-list">
+                        <li>Basic Web Design (HTML, CSS, JavaScript)</li>
+                        <li>VBA Automation for Forms</li>
+                        <li>Report Generation</li>
+                        <li>Electronic File Management</li>
+                        <li>Problem-solving & Critical Thinking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="fade-in">Work Experience</h2>
+                <p class="fade-in">My professional journey and key responsibilities</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-date">2019 - Present</div>
+                    <div class="timeline-content">
+                        <h3>Data Entry Operator</h3>
+                        <h4>United Homeware Company</h4>
+                        
+                        <div class="responsibilities">
+                            <h5>Key Responsibilities:</h5>
+                            <ul>
+                                <li>Inputting Data: Transcribing information from paper documents, forms, or other sources into digital formats</li>
+                                <li>Verifying data: Comparing data to source documents to ensure accuracy and completeness</li>
+                                <li>Updating Databases: Entering new information and modifying existing data to keep databases current</li>
+                                <li>Managing files: Organizing, storing, and retrieving electronic documents and files</li>
+                                <li>Data cleansing: Identifying and correcting errors and inconsistencies in data</li>
+                                <li>Data Backup: Performing regular backups of data to prevent loss</li>
+                            </ul>
+                            
+                            <h5 style="margin-top: 1.5rem;">Other Responsibilities:</h5>
+                            <ul>
+                                <li>Report generation: Creating reports and summaries based on data input</li>
+                                <li>Research and data retrieval: Gathering information from various sources</li>
+                                <li>Data security: Following company policies to ensure data confidentiality and integrity</li>
+                                <li>Administrative tasks: Scanning, printing, and filing documents</li>
+                                <li>Problem-solving: Identifying and resolving issues related to data entry and management</li>
+                                <li>Communication: Responding to queries and requests for data</li>
+                                <li>VBA Automation: Automating forms for fast data entry</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Language Section -->
+    <section class="education" id="education">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="fade-in">Education & Languages</h2>
+                <p class="fade-in">Academic background and language proficiency</p>
+            </div>
+            
+            <div class="edu-lang-container">
+                <div class="edu-card fade-in">
+                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                    <div class="education-item">
+                        <h4>BS in Information Technology</h4>
+                        <p>Lagro, Quezon City, Philippines</p>
+                        <div class="timeline-date" style="position: static; display: inline-block; margin-top: 10px;">2010 - 2012</div>
+                    </div>
+                </div>
+                
+                <div class="lang-card fade-in">
+                    <h3><i class="fas fa-language"></i> Languages</h3>
+                    <ul class="language-list">
+                        <li class="language-item">
+                            <div class="language-name">English</div>
+                            <div class="language-level">Fluent</div>
+                        </li>
+                        <li class="language-item">
+                            <div class="language-name">Arabic</div>
+                            <div class="language-level">Basic Knowledge</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-logo">KURT CREATES</div>
+            
+            <div class="footer-links">
+                <a href="mailto:madronerokurt04@gmail.com" class="footer-link">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+                <a href="tel:+966569226173" class="footer-link">
+                    <i class="fas fa-phone"></i> Call
+                </a>
+                <a href="www.linkedin.com/in/courtenymadronero" target="_blank" class="footer-link">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://kurttzy918.github.io/My-First-Web/" target="_blank" class="footer-link">
+                    <i class="fab fa-github"></i> Portfolio
+                </a>
+            </div>
+            
+            <p class="copyright">
+                © <span id="currentYear"></span> Courteny T. Madronero. All rights reserved.<br>
+                Manila, Philippines | +966 569 226173 | madronerokurt04@gmail.com
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                
+                // Update active link
+                document.querySelectorAll('.nav-link').forEach(item => item.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Update active nav link based on scroll position
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Animate on scroll functionality
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.fade-in');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        // Initial call and scroll event listener
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Photo Carousel Functionality
+        class PhotoCarousel {
+            constructor(container) {
+                this.container = container;
+                this.slides = container.querySelectorAll('.carousel-slide');
+                this.indicators = container.querySelectorAll('.carousel-indicator');
+                this.prevBtn = container.querySelector('.prev-btn');
+                this.nextBtn = container.querySelector('.next-btn');
+                this.currentIndex = 0;
+                this.totalSlides = this.slides.length;
+                this.interval = null;
+                
+                this.init();
+            }
+            
+            init() {
+                // Set up event listeners
+                if (this.prevBtn) {
+                    this.prevBtn.addEventListener('click', () => this.prevSlide());
+                }
+                if (this.nextBtn) {
+                    this.nextBtn.addEventListener('click', () => this.nextSlide());
+                }
+                
+                // Add click events to indicators
+                this.indicators.forEach(indicator => {
+                    indicator.addEventListener('click', (e) => {
+                        const index = parseInt(e.target.getAttribute('data-index'));
+                        this.goToSlide(index);
+                    });
+                });
+                
+                // Auto-rotate slides every 5 seconds
+                this.startAutoRotate();
+                
+                // Pause auto-rotate on hover
+                this.container.addEventListener('mouseenter', () => this.stopAutoRotate());
+                this.container.addEventListener('mouseleave', () => this.startAutoRotate());
+            }
+            
+            startAutoRotate() {
+                this.interval = setInterval(() => {
+                    this.nextSlide();
+                }, 5000);
+            }
+            
+            stopAutoRotate() {
+                if (this.interval) {
+                    clearInterval(this.interval);
+                    this.interval = null;
+                }
+            }
+            
+            prevSlide() {
+                this.stopAutoRotate();
+                const newIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
+                this.goToSlide(newIndex);
+                this.startAutoRotate();
+            }
+            
+            nextSlide() {
+                this.stopAutoRotate();
+                const newIndex = (this.currentIndex + 1) % this.totalSlides;
+                this.goToSlide(newIndex);
+                this.startAutoRotate();
+            }
+            
+            goToSlide(index) {
+                // Remove active class from current slide and indicator
+                this.slides[this.currentIndex].classList.remove('active');
+                this.indicators[this.currentIndex].classList.remove('active');
+                
+                // Update current index
+                this.currentIndex = index;
+                
+                // Add active class to new slide and indicator
+                this.slides[this.currentIndex].classList.add('active');
+                this.indicators[this.currentIndex].classList.add('active');
+            }
+        }
+        
+        // Initialize carousels when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Trigger initial animation for hero elements
+            setTimeout(() => {
+                document.querySelectorAll('.hero .fade-in').forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('visible');
+                    }, index * 200);
+                });
+            }, 300);
+            
+            // Initialize header
+            if (window.scrollY > 50) {
+                document.getElementById('header').classList.add('scrolled');
+            }
+            
+            // Initialize all carousels on the page
+            const carousels = document.querySelectorAll('.photo-carousel');
+            carousels.forEach(carousel => {
+                new PhotoCarousel(carousel);
+            });
+            
+            // Add photo upload instruction functionality
+            const uploadInstruction = document.getElementById('uploadInstruction');
+            if (uploadInstruction) {
+                uploadInstruction.addEventListener('click', () => {
+                    alert('To add your own photos:\n\n1. Replace the image URLs in the HTML with your own photo URLs\n2. Make sure your photos are high-quality and professional\n3. Update the captions to match your photos\n\nExample: <img src="your-photo.jpg" alt="Your Name">');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
