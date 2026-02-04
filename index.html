@@ -3,17 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KURT CREATES</title>
+    <title>KURT CREATES | Data Entry Specialist</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
+        @font-face {
+            font-family: 'Bokra';
+            src: url('Bokra-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
         :root {
             --primary: #3a36e0;
             --primary-light: #6b67ff;
             --primary-dark: #2a27b3;
             --secondary: #00d4aa;
+            --accent-gold: #d4af37;
+            --gold-light: #f5e6b8;
+            --gold-dark: #b8962e;
             --dark: #121826;
             --dark-light: #1f2937;
             --light: #f8fafc;
@@ -168,7 +178,7 @@
             font-size: 1.2rem;
         }
         
-        /* Header & Navigation */
+        /* Header with Infinite Carousel */
         header {
             position: fixed;
             top: 0;
@@ -177,17 +187,16 @@
             z-index: 1000;
             padding: 1.5rem 0;
             transition: var(--transition);
-            background-color: rgba(18, 24, 38, 0.9);
+            background-color: rgba(18, 24, 38, 0.95);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            color: #f209d7;
         }
         
         header.scrolled {
             padding: 1rem 0;
-            background-color: rgba(18, 24, 38, 0.95);
+            background-color: rgba(18, 24, 38, 0.98);
         }
         
         .header-container {
@@ -196,47 +205,77 @@
             align-items: center;
         }
         
-        .logo {
-    font-size: 2rem;
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    letter-spacing: 1px;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    color: #eb0ca8;
-
+        /* Header Logo with Infinite Carousel */
+        .logo-carousel-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            height: 60px;
+            overflow: hidden;
         }
         
         .logo-icon {
-            color: var(--primary);
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--gold-light), var(--accent-gold), var(--gold-dark));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-        }
-        .logo:hover .logo-text {
-    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.35));
-}
-
-        .logo-text {
-    font-weight: 700;
-    background: linear-gradient(
-        135deg,
-        #f5e6b8,   /* soft gold */
-        #d4af37,   /* classic gold */
-        #b8962e    /* deep gold */
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
         }
         
-        .logo span {
-            color: var(--secondary);
+        .logo-carousel {
+             width: auto;
+             overflow: hidden;
+             height: 50px;
+             margin-right: 0.5rem; /* smaller margin */
+        }
+        .logo-track{
+            display: flex;
+            align-items: center;
+            gap: 0.5rem; /* ⬅ reduce spacing here */
+        }
+        /* If logo is inside navbar */
+        nav {
+        padding: 0.8rem 2rem; /* reduce vertical & horizontal padding */
+        }
+        .logo-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: 'Bokra', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, var(--gold-light), var(--accent-gold), var(--gold-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            white-space: nowrap;
         }
         
+        .logo-slide.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .logo-slide.next {
+            transform: translateY(100%);
+        }
+        
+        .logo-slide.prev {
+            transform: translateY(-100%);
+        }
+        
+        /* Navigation */
         .nav-menu {
             display: flex;
             align-items: center;
@@ -286,7 +325,7 @@
         
         /* Hero Section */
         .hero {
-            padding-top: clamp(10rem, 18vw, 15rem);
+            padding-top: clamp(12rem, 20vw, 16rem);
             padding-bottom: clamp(5rem, 10vw, 8rem);
             position: relative;
             overflow: hidden;
@@ -384,31 +423,27 @@
             align-items: center;
         }
         
-        /* Photo Carousel - NO CONTAINER VERSION */
+        /* Photo Carousel - Large Size */
         .photo-carousel {
             width: 100%;
-    max-width: 550px;
-    height: 550px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 0;
-    box-shadow: none;
-    background: transparent;
-    animation: float 8s ease-in-out infinite;
+            max-width: 650px;
+            height: 700px; /* Increased height */
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            background: transparent;
+            animation: float 8s ease-in-out infinite;
         }
         
         .carousel-slide {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 1s ease;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;              /* ✅ show full head */
-    object-position: center top;      /* ✅ prioritize head */
-    background: transparent;
-    transition: transform 8s ease;
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1s ease;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
         }
         
         .carousel-slide.active {
@@ -417,36 +452,16 @@
         }
         
         .carousel-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;              /* ✅ show full head */
-    object-position: center top;      /* ✅ prioritize head */
-    background: transparent;
-    border-radius: 0;
-    transition: transform 8s ease;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: var(--border-radius);
+            transition: transform 8s ease;
         }
         
         .carousel-slide.active img {
             transform: scale(1.05);
-        }
-        
-        /* Gradient overlay for better text readability */
-        .carousel-slide:after {
-            .carousel-slide:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.2),
-        rgba(0,0,0,0.4)
-    );
-    border-radius: 20px;
-}
-
         }
         
         .carousel-indicators {
@@ -518,11 +533,12 @@
             width: 100%;
             text-align: center;
             color: white;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 600;
             z-index: 10;
-            padding: 10px;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            padding: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
         }
         
         @keyframes float {
@@ -530,17 +546,13 @@
             50% { transform: translateY(-25px); }
         }
         
-        /* ABOUT SECTION – BIGGER PHOTO */
-        .about-carousel {
-            max-width: 520px !important;
-            height: 680px !important; /* portrait ratio */
-        }
-
+        /* About Section */
         .about {
             background-color: var(--dark-light);
             position: relative;
             overflow: hidden;
         }
+        
         .about:before {
             content: '';
             position: absolute;
@@ -554,12 +566,56 @@
         
         .about-container {
             display: grid;
-            grid-template-columns: 1.3fr 1.7fr; /* photo bigger */
+            grid-template-columns: 1.2fr 1.8fr;
             gap: 5rem;
             align-items: center;
             position: relative;
             z-index: 2;
-            
+        }
+        
+        /* About Photo Carousel - Same size as hero */
+        .about-photo-carousel {
+            width: 100%;
+            max-width: 650px;
+            height: 700px; /* Same height as hero */
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            background: transparent;
+        }
+        
+        /* About Highlights */
+        .about-highlights {
+            list-style: none;
+            display: grid;
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+        
+        .about-highlights li {
+            background: rgba(255, 255, 255, 0.04);
+            border-left: 4px solid var(--secondary);
+            padding: 1.4rem 1.6rem;
+            border-radius: 12px;
+            transition: var(--transition);
+        }
+        
+        .about-highlights li strong {
+            display: block;
+            font-size: 1.15rem;
+            color: var(--light);
+            margin-bottom: 0.4rem;
+        }
+        
+        .about-highlights li span {
+            color: var(--gray);
+            font-size: 1.05rem;
+        }
+        
+        .about-highlights li:hover {
+            background: rgba(58, 54, 224, 0.12);
+            transform: translateX(8px);
         }
         
         .contact-info {
@@ -637,38 +693,6 @@
             background: linear-gradient(to bottom, var(--primary), var(--secondary));
         }
         
-        .skill-card h3 {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            color: var(--light);
-        }
-        
-        .skill-card h3 i {
-            color: var(--secondary);
-            font-size: 1.8rem;
-        }
-        
-        .skill-list {
-            list-style: none;
-        }
-        
-        .skill-list li {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-            position: relative;
-            color: var(--gray);
-        }
-        
-        .skill-list li:before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: bold;
-        }
-        
         /* Experience Section */
         .experience {
             background-color: var(--dark-light);
@@ -706,24 +730,6 @@
             padding-left: 70px;
         }
         
-        @media (min-width: 768px) {
-            .timeline-item {
-                width: 50%;
-                padding-left: 0;
-            }
-            
-            .timeline-item:nth-child(odd) {
-                padding-right: 70px;
-                margin-left: auto;
-            }
-            
-            .timeline-item:nth-child(even) {
-                padding-left: 70px;
-                margin-right: auto;
-                margin-left: 0;
-            }
-        }
-        
         .timeline-date {
             position: absolute;
             left: 0;
@@ -736,17 +742,6 @@
             font-size: 0.9rem;
             box-shadow: 0 5px 15px rgba(58, 54, 224, 0.3);
             z-index: 2;
-        }
-        
-        @media (min-width: 768px) {
-            .timeline-item:nth-child(odd) .timeline-date {
-                left: auto;
-                right: -110px;
-            }
-            
-            .timeline-item:nth-child(even) .timeline-date {
-                left: -110px;
-            }
         }
         
         .timeline-content {
@@ -764,40 +759,6 @@
             transform: translateY(-10px);
             box-shadow: var(--shadow-lg);
             border-color: var(--primary);
-        }
-        
-        .timeline-content:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-        }
-        
-        .responsibilities {
-            margin-top: 2rem;
-        }
-        
-        .responsibilities ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .responsibilities li {
-            margin-bottom: 0.8rem;
-            padding-left: 2rem;
-            position: relative;
-            color: var(--gray);
-        }
-        
-        .responsibilities li:before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--secondary);
-            font-weight: bold;
         }
         
         /* Education & Language Section */
@@ -840,47 +801,6 @@
             background: linear-gradient(90deg, var(--primary), var(--secondary));
         }
         
-        .edu-card h3, .lang-card h3 {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            color: var(--light);
-        }
-        
-        .edu-card h3 i, .lang-card h3 i {
-            color: var(--secondary);
-            font-size: 1.8rem;
-        }
-        
-        .language-list {
-            list-style: none;
-        }
-        
-        .language-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .language-name {
-            font-weight: 600;
-            color: var(--light);
-            font-size: 1.1rem;
-        }
-        
-        .language-level {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-        
         /* Footer */
         footer {
             background: linear-gradient(135deg, #0a0c14 0%, #121826 100%);
@@ -910,13 +830,16 @@
         }
         
         .footer-logo {
-            font-size: 2.5rem;
-            font-weight: 800;
+            font-family: 'Bokra', serif;
+            font-size: 3rem;
+            font-weight: 700;
             margin-bottom: 2rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--gold-light), var(--accent-gold), var(--gold-dark));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
         
         .footer-links {
@@ -988,15 +911,19 @@
                 justify-content: center;
             }
             
-            .photo-carousel {
-                max-width: 500px;
-                height: 500px;
+            .photo-carousel,
+            .about-photo-carousel {
+                max-width: 550px;
+                height: 600px;
                 margin: 0 auto;
             }
             
-            .skills-container,
-            .edu-lang-container {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            .logo-carousel {
+                width: 250px;
+            }
+            
+            .logo-slide {
+                font-size: 1.8rem;
             }
         }
         
@@ -1036,42 +963,36 @@
             }
             
             .hero {
-                padding-top: 8rem;
+                padding-top: 9rem;
             }
             
-            .photo-carousel {
-                width: 100%;
-    max-width: 550px;
-    height: 550px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 0;
-    box-shadow: none;
-    background: transparent;
-    animation: float 8s ease-in-out infinite;
+            .photo-carousel,
+            .about-photo-carousel {
+                height: 500px;
+                max-width: 450px;
+            }
+            
+            .logo-carousel-container {
+                height: 50px;
+            }
+            
+            .logo-carousel {
+                height: 50px;
+                width: 200px;
+            }
+            
+            .logo-slide {
+                font-size: 1.5rem;
+            }
+            
+            .logo-icon {
+                font-size: 2rem;
             }
             
             .carousel-control {
                 width: 40px;
                 height: 40px;
                 font-size: 1.2rem;
-            }
-            
-            .timeline:before {
-                left: 25px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 60px;
-            }
-            
-            .timeline-date {
-                position: relative;
-                left: 0;
-                top: 0;
-                margin-bottom: 1.5rem;
-                display: inline-block;
             }
             
             .skill-card,
@@ -1081,14 +1002,8 @@
                 padding: 2rem;
             }
             
-            .contact-item {
-                padding: 1.25rem;
-            }
-            
-            .contact-item i {
-                width: 50px;
-                height: 50px;
-                font-size: 1.3rem;
+            .footer-logo {
+                font-size: 2.2rem;
             }
             
             .footer-links {
@@ -1108,25 +1023,18 @@
                 justify-content: center;
             }
             
-            .photo-carousel {
-                width: 100%;
-    max-width: 550px;
-    height: 550px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 0;
-    box-shadow: none;
-    background: transparent;
-    animation: float 8s ease-in-out infinite;
+            .photo-carousel,
+            .about-photo-carousel {
+                height: 400px;
+                max-width: 350px;
             }
             
-            .carousel-caption {
-                font-size: 1rem;
-                bottom: 50px;
+            .logo-carousel {
+                width: 180px;
             }
             
-            .carousel-indicators {
-                bottom: 15px;
+            .logo-slide {
+                font-size: 1.3rem;
             }
             
             .skills-container,
@@ -1145,84 +1053,151 @@
             text-align: center;
         }
         
-        .mt-1 { margin-top: 1rem; }
-        .mt-2 { margin-top: 2rem; }
-        .mt-3 { margin-top: 3rem; }
-        
-        .mb-1 { margin-bottom: 1rem; }
-        .mb-2 { margin-bottom: 2rem; }
-        .mb-3 { margin-bottom: 3rem; }
-        
         .gradient-text {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
-        
-        /* Photo Upload Instructions */
-        .upload-instruction {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .upload-instruction:hover {
-            background: rgba(58, 54, 224, 0.8);
-        }
-        /* ABOUT HIGHLIGHTS */
-.about-highlights {
-    list-style: none;
-    display: grid;
-    gap: 1.2rem;
-    margin-top: 2rem;
+        .logo-carousel {
+    width: 100%;
+    overflow: hidden;
+    height: 60px;
+    display: flex;
+    align-items: center;
 }
 
-.about-highlights li {
-    background: rgba(255, 255, 255, 0.04);
-    border-left: 4px solid var(--secondary);
-    padding: 1.4rem 1.6rem;
-    border-radius: 12px;
-    transition: var(--transition);
+.logo-track {
+    display: flex;
+    gap: 4rem;
+    animation: scrollLogo 18s linear infinite;
 }
 
-.about-highlights li strong {
-    display: block;
-    font-size: 1.15rem;
-    color: var(--light);
-    margin-bottom: 0.4rem;
+.logo-item {
+    white-space: nowrap;
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
 }
 
-.about-highlights li span {
-    color: var(--gray);
-    font-size: 1.05rem;
+@keyframes scrollLogo {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+.hero-subtitle-carousel {
+    position: relative;
+    height: 2.2rem;
+    margin-top: 1rem;
+    overflow: hidden;
 }
 
-.about-highlights li:hover {
-    background: rgba(58, 54, 224, 0.12);
-    transform: translateX(8px);
+.hero-subtitle {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--secondary);
 }
 
+.hero-subtitle.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* FOOTER SOCIAL CAROUSEL */
+.social-carousel {
+    overflow: hidden;
+    width: 100%;
+    padding: 1.2rem 0;
+    background: transparent;
+    align-items: center;
+    display: flex;
+    justify-content: center;  /* 👈 center container */
+}
+
+.social-track {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-start;
+    animation: socialScroll 15s linear infinite;
+    align-items: center;
+    width: max-content;
+
+}
+
+.social-track i {
+    font-size: 1.5rem;
+    color: #9ca3af;
+    transition: transform 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+
+}
+
+.social-track i:hover {
+    transform: scale(1.2);
+    color: #3b82f6;
+}
+
+@keyframes socialScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+.color-primary {
+    color: #ffffff;
+}
+
+.color-secondary {
+    color: #ece111; /* blue */
+}
+
+.color-accent {
+    color: #22c55e; /* green */
+}
+
+.color-muted {
+    color: #9ca3af; /* gray */
+}
+
+/* Optional glow on hover */
+.logo-item {
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.logo-item:hover {
+    text-shadow: 0 0 8px rgba(59,130,246,0.6);
+}
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header with Infinite Carousel -->
     <header id="header">
         <div class="container header-container">
-            <a href="#home" class="logo">
-                <span class="logo-icon"><></span>
-                <span class="logo-text">KURT CREATES</span>
+            <a href="#home" class="logo-carousel-container">
+                <span class="logo-icon"></span>
+                <div class="logo-carousel">
+  <div class="logo-track">
+    <span class="logo-item color-primary">KURT CREATES</span>
+    <span class="logo-item color-secondary">KURT CREATES</span>
+    <span class="logo-item color-primary">KURT CREATES</span>
+    <span class="logo-item color-secondary">KURT CREATES</span>
+
+    <!-- duplicated for seamless loop -->
+    <span class="logo-item color-primary">KURT CREATES</span>
+    <span class="logo-item color-secondary">KURT CREATES</span>
+    <span class="logo-item color-primary">KURT CREATES</span>
+    <span class="logo-item color-secondary">KURT CREATES</span>
+  </div>
+</div>
             </a>
             
             <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -1245,7 +1220,10 @@
         <div class="container hero-container">
             <div class="hero-content">
                 <h1 class="fade-in">Courteny T. Madronero</h1>
-                <div class="hero-subtitle fade-in">Data Entry Operator</div>
+                <div class="hero-subtitle-carousel">
+                <span class="hero-subtitle active">Data Entry Operator</span>
+                <span class="hero-subtitle">Senior Stock Controller</span>
+</div>
                 <p class="fade-in">I have 6 years' experience in an under-pressure company responsible
 for accurate and efficiently inputting, updating, and maintaining data
 within computer systems and databases. I verify data accuracy, correct
@@ -1264,21 +1242,25 @@ knowledge and enhance my skills as well</p>
             </div>
             
             <div class="hero-image fade-in">
-                <!-- Photo Carousel - No Container -->
+                <!-- Photo Carousel -->
                 <div class="photo-carousel">
                     <!-- Photo 1 (Current - Professional) -->
                     <div class="carousel-slide active">
                         <img src="me.png" alt="Courteny Madronero - Professional Headshot">
-                        <div class="carousel-caption">Data Entry Operator</div>
+                        <div class="carousel-caption">7+ Of Experience in Data Entry Operator in a Retail Industry</div>
                     </div>
                     
                     <!-- Photo 2 (Work Environment) -->
                     <div class="carousel-slide">
                         <img src="ako.png" alt="Working at Desk">
-                        <div class="carousel-caption">Data Entry Operator</div>
+                        <div class="carousel-caption">7+ Of Experience in Data Entry Operator in a Retail Industry</div>
                     </div>
-                  
-              
+                    
+                    <!-- Photo 3 -->
+                    <div class="carousel-slide">
+                        <img src="Gemini_Generated_Image_wv5d08wv5d08wv5d-removebg-preview.png" alt="Courteny Madronero">
+                        <div class="carousel-caption">7+ Of Experience in Data Entry Operator in a Retail Industry</div>
+                    </div>
                     
                     <!-- Carousel Controls -->
                     <div class="carousel-controls">
@@ -1295,12 +1277,6 @@ knowledge and enhance my skills as well</p>
                         <div class="carousel-indicator active" data-index="0"></div>
                         <div class="carousel-indicator" data-index="1"></div>
                         <div class="carousel-indicator" data-index="2"></div>
-                        <div class="carousel-indicator" data-index="3"></div>
-                    </div>
-                    
-                    <!-- Upload Instruction -->
-                    <div class="upload-instruction" id="uploadInstruction">
-                        <i class="fas fa-camera"></i>
                     </div>
                 </div>
             </div>
@@ -1312,23 +1288,38 @@ knowledge and enhance my skills as well</p>
         <div class="container">
             <div class="section-header">
                 <h2 class="fade-in">Professional Profile</h2>
-                <p class="fade-in"></p>
+                <p class="fade-in">Expert in data management with 7+ years of experience</p>
             </div>
             
             <div class="about-container">
                 <div class="about-image fade-in">
-                    <!-- Smaller Carousel for About Section -->
-                    <div class="photo-carousel" style="max-width: 400px; height: 400px;">
+                    <!-- About Section Carousel - Same size as hero -->
+                    <div class="about-photo-carousel">
                         <!-- About Section Carousel -->
                         <div class="carousel-slide active">
-                            <img src="me.png" alt="About Me">
+                            <img src="Gemini_Generated_Image_wv5d08wv5d08wv5d-removebg-preview.png" alt="About Me">
+                            <div class="carousel-caption">7+ Of Experience in Data Entry Operator in a Retail Industry</div>
                         </div>
                         <div class="carousel-slide">
-                            <img src="ako.png" alt="Courteny Madronero">
+                            <img src="me.png" alt="Courteny Madronero">
+                            <div class="carousel-caption">7+ Of Experience in Data Entry Operator in a Retail Industry</div>
                         </div>
-                       
+                        <div class="carousel-slide">
+                            <img src="ako.png" alt="Courteny Madronero Working">
+                            <div class="carousel-caption">7+ Of Experience in Data Entry Operator in a Retail Industry</div>
+                        </div>
                         
-                        <!-- Simple indicators for this carousel -->
+                        <!-- Carousel Controls -->
+                        <div class="carousel-controls">
+                            <button class="carousel-control prev-btn">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-control next-btn">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- Carousel Indicators -->
                         <div class="carousel-indicators">
                             <div class="carousel-indicator active" data-index="0"></div>
                             <div class="carousel-indicator" data-index="1"></div>
@@ -1337,32 +1328,36 @@ knowledge and enhance my skills as well</p>
                     </div>
                 </div>
                 
-                <ul class="about-highlights fade-in">
-    <li>
-        <strong>📥 Inputting Data</strong>
-        <span>Transcribing information from paper documents, forms, and other sources into digital systems.</span>
-    </li>
-    <li>
-        <strong>✅ Verifying Data</strong>
-        <span>Ensuring accuracy and completeness by comparing data with source documents.</span>
-    </li>
-    <li>
-        <strong>🗂 Updating Databases</strong>
-        <span>Maintaining up-to-date and well-structured records.</span>
-    </li>
-    <li>
-        <strong>📁 Managing Files</strong>
-        <span>Organizing, storing, and retrieving electronic documents efficiently.</span>
-    </li>
-    <li>
-        <strong>🧹 Data Cleansing</strong>
-        <span>Identifying and correcting errors and inconsistencies.</span>
-    </li>
-    <li>
-        <strong>💾 Data Backup</strong>
-        <span>Performing regular backups to prevent data loss.</span>
-    </li>
-</ul>
+                <div class="about-content">
+                    <h3 class="fade-in">Core Competencies</h3>
+                    <p class="fade-in">Specialized in data entry, database management, and information processing with a focus on accuracy, efficiency, and attention to detail.</p>
+                    
+                    <ul class="about-highlights fade-in">
+                        <li>
+                            <strong>📥 Inputting Data</strong>
+                            <span>Transcribing information from paper documents, forms, and other sources into digital systems.</span>
+                        </li>
+                        <li>
+                            <strong>✅ Verifying Data</strong>
+                            <span>Ensuring accuracy and completeness by comparing data with source documents.</span>
+                        </li>
+                        <li>
+                            <strong>🗂 Updating Databases</strong>
+                            <span>Maintaining up-to-date and well-structured records.</span>
+                        </li>
+                        <li>
+                            <strong>📁 Managing Files</strong>
+                            <span>Organizing, storing, and retrieving electronic documents efficiently.</span>
+                        </li>
+                        <li>
+                            <strong>🧹 Data Cleansing</strong>
+                            <span>Identifying and correcting errors and inconsistencies.</span>
+                        </li>
+                        <li>
+                            <strong>💾 Data Backup</strong>
+                            <span>Performing regular backups to prevent data loss.</span>
+                        </li>
+                    </ul>
 
                     <div class="contact-info" id="contact">
                         <div class="contact-item fade-in">
@@ -1539,21 +1534,23 @@ knowledge and enhance my skills as well</p>
         <div class="container footer-container">
             <div class="footer-logo">KURT CREATES</div>
             
-            <div class="footer-links">
-                <a href="mailto:madronerokurt04@gmail.com" class="footer-link">
-                    <i class="fas fa-envelope"></i> Email
-                </a>
-                <a href="tel:+966569226173" class="footer-link">
-                    <i class="fas fa-phone"></i> Call
-                </a>
-                <a href="www.linkedin.com/in/courtenymadronero" target="_blank" class="footer-link">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-                <a href="https://kurttzy918.github.io/My-First-Web/" target="_blank" class="footer-link">
-                    <i class="fab fa-github"></i> Portfolio
-                </a>
-            </div>
-            
+            <div class="social-carousel">
+  <div class="social-track">
+    <i class="fab fa-facebook-f"></i>
+    <i class="fab fa-instagram"></i>
+    <i class="fab fa-linkedin-in"></i>
+    <i class="fab fa-github"></i>
+    <i class="fab fa-twitter"></i>
+
+    <!-- duplicate for infinite loop -->
+    <i class="fab fa-facebook-f"></i>
+    <i class="fab fa-instagram"></i>
+    <i class="fab fa-linkedin-in"></i>
+    <i class="fab fa-github"></i>
+    <i class="fab fa-twitter"></i>
+  </div>
+</div>
+
             <p class="copyright">
                 © <span id="currentYear"></span> Courteny T. Madronero. All rights reserved.<br>
                 Manila, Philippines | +966 569 226173 | madronerokurt04@gmail.com
@@ -1565,94 +1562,72 @@ knowledge and enhance my skills as well</p>
         // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
         
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-        });
-        
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                
-                // Update active link
-                document.querySelectorAll('.nav-link').forEach(item => item.classList.remove('active'));
-                link.classList.add('active');
-            });
-        });
-        
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+        // Header Infinite Carousel
+        class HeaderCarousel {
+            constructor() {
+                this.container = document.querySelector('.logo-carousel');
+                this.slides = document.querySelectorAll('.logo-slide');
+                this.currentIndex = 0;
+                this.totalSlides = this.slides.length;
+                this.interval = null;
+                this.init();
             }
             
-            // Update active nav link based on scroll position
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 150)) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-        
-        // Animate on scroll functionality
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.fade-in');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.2;
+            init() {
+                // Set initial active slide
+                this.updateSlides();
                 
-                if (elementPosition < screenPosition) {
-                    element.classList.add('visible');
-                }
-            });
-        };
-        
-        // Initial call and scroll event listener
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
+                // Start auto rotation
+                this.startAutoRotate();
                 
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
+                // Pause on hover
+                this.container.addEventListener('mouseenter', () => this.stopAutoRotate());
+                this.container.addEventListener('mouseleave', () => this.startAutoRotate());
+            }
+            
+            startAutoRotate() {
+                this.interval = setInterval(() => {
+                    this.nextSlide();
+                }, 3000); // Rotate every 3 seconds
+            }
+            
+            stopAutoRotate() {
+                if (this.interval) {
+                    clearInterval(this.interval);
+                    this.interval = null;
                 }
-            });
-        });
+            }
+            
+            nextSlide() {
+                // Remove current active class
+                this.slides[this.currentIndex].classList.remove('active');
+                this.slides[this.currentIndex].classList.add('prev');
+                
+                // Update index
+                this.currentIndex = (this.currentIndex + 1) % this.totalSlides;
+                
+                // Add active class to new slide
+                this.slides[this.currentIndex].classList.remove('prev');
+                this.slides[this.currentIndex].classList.add('active');
+                
+                // Remove prev class from old slide after animation
+                setTimeout(() => {
+                    const prevSlide = document.querySelector('.logo-slide.prev');
+                    if (prevSlide) {
+                        prevSlide.classList.remove('prev');
+                    }
+                }, 800);
+            }
+            
+            updateSlides() {
+                this.slides.forEach((slide, index) => {
+                    slide.classList.remove('active', 'prev', 'next');
+                    if (index === this.currentIndex) {
+                        slide.classList.add('active');
+                    }
+                });
+            }
+        }
         
         // Photo Carousel Functionality
         class PhotoCarousel {
@@ -1735,8 +1710,103 @@ knowledge and enhance my skills as well</p>
             }
         }
         
-        // Initialize carousels when DOM is loaded
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                
+                // Update active link
+                document.querySelectorAll('.nav-link').forEach(item => item.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Update active nav link based on scroll position
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Animate on scroll functionality
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.fade-in');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Initialize when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
+            // Initialize header carousel
+            new HeaderCarousel();
+            
+            // Initialize all photo carousels
+            const heroCarousel = document.querySelector('.photo-carousel');
+            const aboutCarousel = document.querySelector('.about-photo-carousel');
+            
+            if (heroCarousel) new PhotoCarousel(heroCarousel);
+            if (aboutCarousel) new PhotoCarousel(aboutCarousel);
+            
             // Trigger initial animation for hero elements
             setTimeout(() => {
                 document.querySelectorAll('.hero .fade-in').forEach((el, index) => {
@@ -1750,21 +1820,21 @@ knowledge and enhance my skills as well</p>
             if (window.scrollY > 50) {
                 document.getElementById('header').classList.add('scrolled');
             }
-            
-            // Initialize all carousels on the page
-            const carousels = document.querySelectorAll('.photo-carousel');
-            carousels.forEach(carousel => {
-                new PhotoCarousel(carousel);
-            });
-            
-            // Add photo upload instruction functionality
-            const uploadInstruction = document.getElementById('uploadInstruction');
-            if (uploadInstruction) {
-                uploadInstruction.addEventListener('click', () => {
-                    alert('To add your own photos:\n\n1. Replace the image URLs in the HTML with your own photo URLs\n2. Make sure your photos are high-quality and professional\n3. Update the captions to match your photos\n\nExample: <img src="your-photo.jpg" alt="Your Name">');
-                });
-            }
         });
+        
+        // Initial call and scroll event listener for animations
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+const subtitles = document.querySelectorAll('.hero-subtitle');
+let subtitleIndex = 0;
+
+setInterval(() => {
+    subtitles[subtitleIndex].classList.remove('active');
+    subtitleIndex = (subtitleIndex + 1) % subtitles.length;
+    subtitles[subtitleIndex].classList.add('active');
+}, 3000);
+
     </script>
 </body>
 </html>
